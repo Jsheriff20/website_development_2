@@ -1,0 +1,1 @@
+when dispalying the bulk of the details on the teams pages have it being read from a file and outputted onto the page or from database 
