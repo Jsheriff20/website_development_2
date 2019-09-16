@@ -1,3 +1,43 @@
+function validate_register() {
+	const username = document.forms["register"]["username"].value;
+	const password = document.forms["register"]["password"].value;
+ 	const name = document.forms["register"]["name"].value;
+ 	const contactNumber = document.forms["register"]["contact_number"].value;
+    if (username.length < 5) {
+        alert("Username is to short!");
+        return false;
+    }
+	else if (username.length > 20) {
+        alert("Username is to long!");
+        return false;
+    }
+ 	else if (password.length < 7){
+ 		alert("Check password!");
+        return false;
+ 	}
+ 	else if (name.length == ""){
+ 		alert("Name is to short!");
+        return false;
+ 	}
+ 	else if (contact_number < 5){
+ 		alert("Please enter a valid contact number.");
+        return false;
+ 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 refresh_normal = true;
 
 $(document).ready(function(){
@@ -102,33 +142,6 @@ function hide_unavailable_times(hide_first_time, hide_second_time, hide_third_ti
   
 }
 
-
-function ValidateRegister() {
-	const username = document.forms["register"]["username"].value;
-	const password = document.forms["register"]["password"].value;
- 	const name = document.forms["register"]["name"].value;
- 	const contactNumber = document.forms["register"]["contactNumber"].value;
-    if (username.length < 5) {
-        alert("User-Name is to short!");
-        return false;
-    }
-	else if (username.length > 20) {
-        alert("User-Name is to long!");
-        return false;
-    }
- 	else if (password.length < 7){
- 		alert("Check password!");
-        return false;
- 	}
- 	else if (name.length == ""){
- 		alert("Name is to short!");
-        return false;
- 	}
- 	else if (contactNumber < 5){
- 		alert("Please enter a valid contact number.");
-        return false;
- 	}
-}
 
 
 function validateForm() {
