@@ -1,1 +1,5 @@
 when dispalying the bulk of the details on the teams pages have it being read from a file and outputted onto the page or from database 
+remove any inline css such as style="" etc and give them ids and have it in the css file 
+fix nav bar
+fix white space not extending
+fix where cards go when window is small as it just over laps cards

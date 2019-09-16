@@ -260,9 +260,9 @@
 
 				<div class="row" style="padding-bottom:50px;">
 					<div class="col-sm-4">
-						<div class="card">
+						<div class="card" style="width: 18rem;">
 
-						<div style="padding: 20px";>
+						<div style="padding: 20px">
 							<img class="card-img-top" src="<?php get_team_details("Indiana Pacers", "image_link") ?>" alt="<?php get_team_details("Indiana Pacers", "team_name") ?>">
 						</div>
 							<div class="card-body text-center">
@@ -279,7 +279,7 @@
 						
 
 					<div class="col-sm-4">
-						<div class="card">
+						<div class="card" style="width: 18rem;">
 
 							<img class="card-img-top" src="<?php get_team_details("Toronto Raptors", "image_link") ?>" alt="<?php get_team_details("Toronto Raptors", "team_name") ?>">
 							<div class="card-body text-center">
@@ -296,9 +296,9 @@
 
 
 					<div class="col-sm-4">
-						<div class="card">
+						<div class="card" style="width: 18rem;">
 
-						<div style="padding: 20px";>
+						<div style="padding: 20px">
 							<img class="card-img-top" src="<?php get_team_details("Utah Jazz", "image_link") ?>" alt="<?php get_team_details("Utah Jazz", "team_name") ?>">
 						</div>
 							<div class="card-body text-center">
