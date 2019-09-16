@@ -2,7 +2,7 @@
 	session_start();
 	// if the user is already logged in this will run
 	if ($_SESSION["loggedIn"] != "1" ){
-		header("location: ../login/login.html");
+		header("location: login/login.php");
 		exit();
 	}
 ?>

@@ -4,14 +4,7 @@
 <head>
 
 	<title>Register</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="../../jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="passwordscheck.js"></script>
-	<link rel="stylesheet" type="text/css" href="../CSS.css">
-	<script type="text/javascript" src="../script.js" ></script>
+	<?php include_once("../link_include.php");?>
 
 
 		<header class="banner navbar-fixed-top">
@@ -39,7 +32,7 @@
 
 				<div class="navbar-nav">
 
-					<a class="nav-item nav-link" href="../login/login.html">Login</a>
+					<a class="nav-item nav-link" href="../login/login.php">Login</a>
 				</div>
 			</div>
 		</div>
@@ -81,7 +74,7 @@
 				</tr>
 				<tr>
 					<th>Done? </th>
-					<td><input type="submit" name="submit"  value="Register" action="../login/login.html"></td>
+					<td><input type="submit" name="submit"  value="Register" action="../login/login.php"></td>
 				</tr>
 			</tbody>
 		</table>	

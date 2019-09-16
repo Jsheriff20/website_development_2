@@ -42,7 +42,7 @@ $stmt = mysqli_stmt_init($conn);
 	}
 	//check if user has already gotten that username
 	else if ($username_availability >= 1){
-		header("location: register.html");
+		header("location: register.php");
 	}
 	else { //inputs registration infomation into database
 
@@ -55,7 +55,7 @@ $stmt = mysqli_stmt_init($conn);
     else{
         mysqli_stmt_bind_param($stmt, "ssssi", $username, $password_hashed, $name, $email, $contact_number);
         mysqli_stmt_execute($stmt);
-        header("Location: ../login/login.html");
+        header("Location: ../login/login.php");
     }
 }
 ?>

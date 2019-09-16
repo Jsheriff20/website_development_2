@@ -1,9 +1,19 @@
 when dispalying the bulk of the details on the teams pages have it being read from a file and outputted onto the page or from database 
-remove any inline css such as style="" etc and give them ids and have it in the css file 
+
 fix white space not extending
 fix where cards go when window is small as it just over laps cards
-make sure any images/ stolen text is referenced
+
 make sure that picutres are not to large (which may slow down site) (if a user 3000 x 3000 image is getting changed to 100 x 100 then...
 make it into a smaller size)
-
 week1 - cards not centered
+put nav bar includes inside of a folder called nav bars
+delete any un needed javascript stuff (such as functions
+
+
+
+
+DONT DELETE AND MAKE SURE IS TRUE BEFORE SUBMIT!!
+
+try and have the code all condenced by using include and functions
+make sure any images/ stolen text is referenced
+remove any inline css such as style="" etc and give them ids and have it in the css file 
