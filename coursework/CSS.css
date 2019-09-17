@@ -1,14 +1,8 @@
-body,html{
-	height:100%;
-}
-
 .bg{
 	background-image: url("images/background.jpg");
-	background-size: cover;
+	background-size: contain;
+	width: 100%;
 	background-position: center;
-
-
-	height: 100%;
 }
 
 
@@ -19,11 +13,17 @@ body,html{
 
 	padding: 10px;
 	width: 75%;
-	height: 100%;
 
 	background-color: whitesmoke;
 }
 
+.comment_box{
+	border-style: solid;
+	border-width:;
+	padding: 10px;
+	border-color: #F8F8F8;
+	background-color: #a9c9d7;
+}
 .top-right{
 	position: absolute;
 	float:"left";

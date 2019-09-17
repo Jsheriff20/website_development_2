@@ -9,6 +9,20 @@ week1 - cards not centered
 put nav bar includes inside of a folder called nav bars
 delete any un needed javascript stuff (such as functions
 
+when displaying the articles for each team have some that have mulitpul teams in them such as a article that talks about the top 5 teams etc.
+fix background on week2 page
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -17,3 +31,4 @@ DONT DELETE AND MAKE SURE IS TRUE BEFORE SUBMIT!!
 try and have the code all condenced by using include and functions
 make sure any images/ stolen text is referenced
 remove any inline css such as style="" etc and give them ids and have it in the css file 
+

@@ -85,7 +85,7 @@
 				<div class="row" style="padding-bottom:50px;">
 					<div class="col-sm-4">
 
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark">
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("New York Knicks", "image_link") ?>" alt="<?php get_team_details("New York Knicks", "team_name") ?>"> <!--Info taken from https://en.wikipedia.org/wiki/New_York_Knicks-->
@@ -96,15 +96,14 @@
 								<p class="card-text"><?php get_team_details("New York Knicks", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week1.php" class="btn btn-primary streched-link">About <?php get_team_details("New York Knicks", "team_name") ?></a><br>
-								<a href="week1.php" class="btn btn-primary streched-link">Week 1 Commentary</a>
+								<a href="week1.php" class="btn btn-primary streched-link">More About <?php get_team_details("New York Knicks", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
 
 
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("Miami Heat", "image_link") ?>" alt="<?php get_team_details("Miami Heat", "team_name") ?>">
@@ -115,15 +114,14 @@
 								<p class="card-text"><?php get_team_details("Miami Heat", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week2.php" class="btn btn-primary streched-link">About <?php get_team_details("Miami Heat", "team_name") ?></a><br>
-								<a href="week2.php" class="btn btn-primary streched-link">Week 2 Commentary</a>
+								<a href="week2.php" class="btn btn-primary streched-link">More About <?php get_team_details("Miami Heat", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
 						
 
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("Los Angelese Lakers", "image_link") ?>" alt="<?php get_team_details("Los Angelese Lakers", "team_name") ?>">
@@ -134,8 +132,7 @@
 								<p class="card-text"><?php get_team_details("Los Angelese Lakers", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week3.php" class="btn btn-primary streched-link">About <?php get_team_details("Los Angelese Lakers", "team_name") ?></a><br>
-								<a href="week3.php" class="btn btn-primary streched-link">Week 3 Commentary</a>
+								<a href="week3.php" class="btn btn-primary streched-link">More About <?php get_team_details("Los Angelese Lakers", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
@@ -143,7 +140,7 @@
 					
 				<div class="row" style="padding-bottom:50px;">	
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("Minnesota Timberwolves", "image_link") ?>" alt="<?php get_team_details("Minnesota Timberwolves", "team_name") ?>">
@@ -154,15 +151,14 @@
 								<p class="card-text"><?php get_team_details("Minnesota Timberwolves", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week4.php" class="btn btn-primary streched-link">About <?php get_team_details("Minnesota Timberwolves", "team_name") ?></a><br>
-								<a href="week4.php" class="btn btn-primary streched-link">Week 4 Commentary</a>
+								<a href="week4.php" class="btn btn-primary streched-link">More About <?php get_team_details("Minnesota Timberwolves", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>						
 
 				
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("Oklahoma City Thunder", "image_link") ?>" alt="<?php get_team_details("Oklahoma City Thunder", "team_name") ?>">
@@ -173,15 +169,14 @@
 								<p class="card-text"><?php get_team_details("Oklahoma City Thunder", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week5.php" class="btn btn-primary streched-link">About <?php get_team_details("Oklahoma City Thunder", "team_name") ?></a><br>
-								<a href="week5.php" class="btn btn-primary streched-link">Week 5 Commentary</a>
+								<a href="week5.php" class="btn btn-primary streched-link">More About <?php get_team_details("Oklahoma City Thunder", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
 						
 
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("Houston Rockets", "image_link") ?>" alt="<?php get_team_details("Houston Rockets", "team_name") ?>">
@@ -192,8 +187,7 @@
 								<p class="card-text"><?php get_team_details("Houston Rockets", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week6.php" class="btn btn-primary streched-link">About <?php get_team_details("Houston Rockets", "team_name") ?></a><br>
-								<a href="week6.php" class="btn btn-primary streched-link">Week 6 Commentary</a>
+								<a href="week6.php" class="btn btn-primary streched-link">More About <?php get_team_details("Houston Rockets", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
@@ -202,7 +196,7 @@
 
 				<div class="row" style="padding-bottom:50px;">
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("Golden State Warriors", "image_link") ?>" alt="<?php get_team_details("Golden State Warriors", "team_name") ?>">
@@ -213,15 +207,14 @@
 								<p class="card-text"><?php get_team_details("Golden State Warriors", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week7.php" class="btn btn-primary streched-link">About <?php get_team_details("Golden State Warriors", "team_name") ?></a><br>
-								<a href="week7.php" class="btn btn-primary streched-link">Week 7 Commentary</a>
+								<a href="week7.php" class="btn btn-primary streched-link">More About <?php get_team_details("Golden State Warriors", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
 						
 
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("Cleveland Cavaliers", "image_link") ?>" alt="<?php get_team_details("Cleveland Cavaliers", "team_name") ?>">
@@ -232,15 +225,14 @@
 								<p class="card-text"><?php get_team_details("Cleveland Cavaliers", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week8.php" class="btn btn-primary streched-link">About <?php get_team_details("Cleveland Cavaliers", "team_name") ?></a><br>
-								<a href="week8.php" class="btn btn-primary streched-link">Week 8 Commentary</a>
+								<a href="week8.php" class="btn btn-primary streched-link">More About <?php get_team_details("Cleveland Cavaliers", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
 						
 
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px";>
 							<img class="card-img-top" src="<?php get_team_details("Chicago Bulls", "image_link") ?>" alt="<?php get_team_details("Chicago Bulls", "team_name") ?>">
@@ -251,8 +243,7 @@
 								<p class="card-text"><?php get_team_details("Chicago Bulls", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week9.php" class="btn btn-primary streched-link">About <?php get_team_details("Chicago Bulls", "team_name") ?></a><br>
-								<a href="week9.php" class="btn btn-primary streched-link">Week 9 Commentary</a>
+								<a href="week9.php" class="btn btn-primary streched-link">More About <?php get_team_details("Chicago Bulls", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
@@ -262,7 +253,7 @@
 
 				<div class="row" style="padding-bottom:50px;">
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px">
 							<img class="card-img-top" src="<?php get_team_details("Indiana Pacers", "image_link") ?>" alt="<?php get_team_details("Indiana Pacers", "team_name") ?>">
@@ -273,32 +264,32 @@
 								<p class="card-text"><?php get_team_details("Indiana Pacers", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week10.php" class="btn btn-primary streched-link">About <?php get_team_details("Indiana Pacers", "team_name") ?></a><br>
-								<a href="week10.php" class="btn btn-primary streched-link">Week 10 Commentary</a>
+								<a href="week10.php" class="btn btn-primary streched-link">More About <?php get_team_details("Indiana Pacers", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
 						
 
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
+						<div style="padding: 20px">
 							<img class="card-img-top" src="<?php get_team_details("Toronto Raptors", "image_link") ?>" alt="<?php get_team_details("Toronto Raptors", "team_name") ?>">
+						</div>
 							<div class="card-body text-center">
 
 								<h4 class="card-title"><?php get_team_details("Toronto Raptors", "team_name") ?></h4>
 								<p class="card-text"><?php get_team_details("Toronto Raptors", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week11.php" class="btn btn-primary streched-link">About <?php get_team_details("Toronto Raptors", "team_name") ?></a><br>
-								<a href="week11.php" class="btn btn-primary streched-link">Week 11 Commentary</a>
+								<a href="week11.php" class="btn btn-primary streched-link">More About <?php get_team_details("Toronto Raptors", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>	
 
 
 					<div class="col-sm-4">
-						<div class="card" style="width: 18rem;">
+						<div class="card border-dark" >
 
 						<div style="padding: 20px">
 							<img class="card-img-top" src="<?php get_team_details("Utah Jazz", "image_link") ?>" alt="<?php get_team_details("Utah Jazz", "team_name") ?>">
@@ -309,8 +300,7 @@
 								<p class="card-text"><?php get_team_details("Utah Jazz", "team_description") ?></p>
 							</div>
 							<div class="card-footer text-center">
-								<a href="week12.php" class="btn btn-primary streched-link">About <?php get_team_details("Utah Jazz", "team_name") ?></a><br>
-								<a href="week12.php" class="btn btn-primary streched-link">Week 12 Commentary</a>
+								<a href="week12.php" class="btn btn-primary streched-link">More About <?php get_team_details("Utah Jazz", "team_name") ?></a><br>
 							</div>
 						</div>
 					</div>
