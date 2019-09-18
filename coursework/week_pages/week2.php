@@ -46,7 +46,7 @@
 					<!-- list of buttons with team name, clicking on a team button will change what the article is about -->
 					<div class="col-sm-3">
 
-						<div class="btn-group-vertical position-fixed">
+						<div class="btn-group-vertical ">
 							<button type="button" class="btn btn-secondary navbar-dark bg-dark">1</button>
 							<button type="button" class="btn btn-secondary navbar-dark bg-dark">2</button>
 							<button type="button" class="btn btn-secondary navbar-dark bg-dark">3</button>
@@ -107,8 +107,8 @@
 						<div class="row" style="padding-bottom:50px; margin-left: 10%; margin-right: 10%;">	
 
 						<!-- every time a comment is found relating to a article then there will be a php loop that echoes them out liek this example -->
-						<?php echo '
-							<div class="card border-dark" style="width:100%;" >
+						<?php for($i = 0; 10 > $i; $i++){echo '
+							<div class="card border-dark" style="width:100%; margin-bottom:60px" >
 
 								<div class="card-header text-center">
 
@@ -127,7 +127,8 @@
 									<a href="week10.php" class="btn btn-primary streched-link">Delete (only display if the user created the card)</a><br>
 								</div>
 							</div>
-							'?>
+						
+							';}?>
 						</div>
 					</div>
 				</div>
