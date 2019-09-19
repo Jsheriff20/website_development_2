@@ -12,6 +12,8 @@ $dbname = 'sql1800367';
 //connects to the database
 $conn = new mysqli($servername, $dbusername, $password, $dbname);
 
+
+//get infomation from register form
 $username = $_POST['username'];
 $user_password = $_POST['password'];
 $password_hashed = password_hash($user_password, PASSWORD_DEFAULT); // password is hashed and salted.
@@ -21,7 +23,7 @@ $contact_number = $_POST['contact_number'];
 
 // this will check to see if the username is already in use
 
-$sql = "SELECT * FROM basketball_teams_website_user_details WHERE username = ?;";
+$sql = "SELECT * FROM basketball_teams_website_users WHERE users_username = ?;";
 $stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt, $sql)){
 		echo "sql Statment failed!";
@@ -33,20 +35,16 @@ $stmt = mysqli_stmt_init($conn);
 		mysqli_stmt_execute($stmt);
 		$result = mysqli_stmt_get_result($stmt);
 		$row = mysqli_fetch_array($result);
-		$username_availability = $row["id"];
+		$username_availability = $row["users_id"];
 	}
 
-	if(mysqli_connect_error()) {
-		echo "Connection has failed: " . mysqli_connect_error();
-		exit();
-	}
 	//check if user has already gotten that username
 	else if ($username_availability >= 1){
 		header("location: register.php");
 	}
 	else { //inputs registration infomation into database
 
-    $sql = "INSERT INTO basketball_teams_website_user_details (username, password, name, email, contact_number)
+    $sql = "INSERT INTO basketball_teams_website_users (users_username, users_password, users_name, users_email, users_contact_number)
         VALUES (?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){

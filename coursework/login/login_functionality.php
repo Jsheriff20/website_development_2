@@ -15,7 +15,7 @@
 	$password = htmlspecialchars($password);
 	
 	// created a template
-	$sql = "SELECT * FROM basketball_teams_website_user_details WHERE username = ?;"; 
+	$sql = "SELECT * FROM basketball_teams_website_users WHERE users_username = ?;"; 
 	$stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt, $sql)){
 		echo "sql Statment failed!";
@@ -27,7 +27,7 @@
 		mysqli_stmt_execute($stmt);
 		$result = mysqli_stmt_get_result($stmt);
 		$row = mysqli_fetch_array($result);
-		$stored_password = $row["password"];
+		$stored_password = $row["users_password"];
 
 
 		if (password_verify($password, $stored_password)){
@@ -40,7 +40,7 @@
 		}
 
 
-		if ($row["username"] == $username && $password_verified == true){
+		if ($row["users_username"] == $username && $password_verified == true){
 
 			header("location: ../week_pages/week1.php");
 			session_start();

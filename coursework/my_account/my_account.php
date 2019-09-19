@@ -14,7 +14,7 @@
 	
 	//gets username from session
 	$username = $_SESSION['username'];
-	$sql = "SELECT * FROM basketball_teams_website_user_details WHERE username = ? ;";
+	$sql = "SELECT * FROM basketball_teams_website_users WHERE users_username = ? ;";
 	$stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt, $sql)){
 		echo "sql Statment failed!";
@@ -26,9 +26,9 @@
 		mysqli_stmt_execute($stmt);
 		$result = mysqli_stmt_get_result($stmt);
 		$row = mysqli_fetch_array($result);
-		$name = $row['name'];
-		$email = $row['email'];
-		$contact_number = $row['contact_number'];
+		$name = $row['users_name'];
+		$email = $row['users_email'];
+		$contact_number = $row['users_contact_number'];
 	}
 ?>
 

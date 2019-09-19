@@ -26,7 +26,7 @@
 		$result_to_return;
 
 		//get what ever details from what ever team has been chosen
-		$sql = "SELECT $what_to_get FROM basketball_teams_website WHERE team_name = ? ;";
+		$sql = "SELECT $what_to_get FROM basketball_teams_website WHERE teams_name = ? ;";
 		$stmt = mysqli_stmt_init($conn);
 
 		//if connection has failed output error

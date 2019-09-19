@@ -12,6 +12,8 @@ delete any un needed javascript stuff (such as functions
 when displaying the articles for each team have some that have mulitpul teams in them such as a article that talks about the top 5 teams etc.
 fix background on week2 page
 
+make commentarys display from database
+
 
 
 

@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	// if the user is already logged in this will run
-	if ($_SESSION["loggedIn"] != "1" ){
+	if ($_SESSION["logged_in"] != "1" ){
 		header("location: login/login.php");
 		exit();
 	}
@@ -44,6 +44,7 @@
 				<div class="row" style="padding-bottom:50px;">
 
 					<div class="col-sm-12">
+						<h1>Week 1</h1><br><br>
 
 						<h2> At the heart of any HTML5 frameworks is a grid system. Summarise the grid system you will use in Bootstrap.</h2><br>
 						<br>
