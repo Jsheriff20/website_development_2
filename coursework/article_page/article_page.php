@@ -14,7 +14,12 @@
 
 	
 	function get_article_info($article_title){
-    
+		
+		//used to display errors when testing remove once ready to be published.
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
+		
         include("../config.php");
     
         $sql = "SELECT basketball_teams_website_articles.articles_title, basketball_teams_website_articles.articles_text,
@@ -31,36 +36,36 @@
         $output_article = 0;
 
         if ($result->num_rows > 0) {
-
-            // output relevent data
-            while($row = $result->fetch_assoc()) {
-
-                if($row["articles_title"] == $article_title){
-
-                    echo $row["images_title"];
-                    echo "<br>";
-                    echo $row["images_path"];
-                    echo "<br><br>";
-                }
-            }
-            
-                  
-            //trying to only let this display once
-            ($row = $result->fetch_assoc()) {
+								
+			while($row = $result->fetch_assoc()) {
 
                 if($row["articles_title"] == $article_title){
 
-                    echo $row["articles_title"];
-                    echo $row["articles_text"];
-                    echo $row["articles_author"];
-                }
+					echo $row["images_title"];
+					echo $row["images_path"];
+				}
+			}        
+		} 
+		else {
 
+            echo "0 results";
+		}
+		
+		if ($result->num_rows > 0) {
+								
+			while($row = $result->fetch_assoc()) {
 
-                $output_article = 1;
-            }
-            
-        
-        } else {
+                if($row["articles_title"] == $article_title){
+
+					echo $row["articles_title"];
+					echo $row["articles_text"];
+					echo $row["articles_author"];
+
+					break
+				}
+			}        
+		} 
+		else {
 
             echo "0 results";
         }
