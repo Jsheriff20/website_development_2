@@ -26,6 +26,13 @@
 		<body class= "bg">
 
 			<main class= "main_container" >
+				<div class="row">
+					<div class="col-lg-12">
+
+					<button type="button" class="btn btn-primary streched-link" onclick="history.back()">Back</button>
+					</div>
+				</div>
+
 
 				<div class="row">
 
