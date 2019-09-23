@@ -14,6 +14,9 @@ fix background on week2 page
 
 make commentarys display from database
 
+have a footer on the bottom of each page with my studnet number and name in it 
+
+on the articles pages only display and allow the user to delete a comment if they created it
 
 
 

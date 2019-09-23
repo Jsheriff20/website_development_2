@@ -26,7 +26,27 @@ function validate_register() {
 }
 
 
+function validate_comment() {
 
+	const comments_title = document.forms["add_comment"]["comments_title"].value;
+	const comments_text = document.forms["add_comment"]["comments_text"].value;
+
+    if (comments_title.length < 5) {
+
+        alert("Your comment's title is too short!");
+        return false;
+    }
+	else if (comments_text.length < 10) {
+
+        alert("Your comment's text is too short!");
+        return false;
+    }
+}
+
+
+$('.carousel').carousel({
+	interval: 250
+  })
 
 
 

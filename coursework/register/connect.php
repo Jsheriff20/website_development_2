@@ -3,15 +3,7 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	
-//assigning variables to connect
-$servername = 'lochnagar.abertay.ac.uk';
-$dbusername = 'sql1800367';
-$password = 'xqCNtH46949v';
-$dbname = 'sql1800367';
-
-//connects to the database
-$conn = new mysqli($servername, $dbusername, $password, $dbname);
-
+	include("../config.php");
 
 //get infomation from register form
 $username = $_POST['username'];

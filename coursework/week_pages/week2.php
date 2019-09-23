@@ -11,11 +11,142 @@
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+	
+	//include config details to connect to database
+	include("../config.php");
+
+
+	function get_card_details($teams_name, $what_to_get){
+
+		//get details from config file to help us connect to the database
+		include("../config.php");
+	
+	
+		$sql = "SELECT basketball_teams_website_items.teams_name, basketball_teams_website_items.teams_description,
+			basketball_teams_website_images.images_path, basketball_teams_website_images.images_title
+			FROM basketball_teams_website_items
+			INNER JOIN basketball_teams_website_images
+			ON basketball_teams_website_items.teams_id=basketball_teams_website_images.teams_id;";
+	
+	
+		$result = $conn->query($sql);
+	
+		$carousel_images_code = "";
+		$concatenate_num = 1;
+			
+		if ($result->num_rows > 0) {
+								
+			if($what_to_get == "slide_show"){
+
+				while($row = $result->fetch_assoc()) {
+		
+					if($row["teams_name"] == $teams_name){
+						
+						//dont display first image from table as this is the logo
+						if($concatenate_num == 2){
+
+							$carousel_images_code .= '<div class="card-img-top carousel-item active">' . '<img class="d-block w-100" src="'
+								. $row["images_path"] . '" alt="' . $row["images_title"] .'">' . '</div>';
+							$first_concatenate = false;
+						}else if($concatenate_num > 2){
+
+						$carousel_images_code .= '<div class="card-img-top carousel-item">' . '<img class="d-block w-100" src="' . $row["images_path"]
+							. '" alt="' . $row["images_title"] .'">' . '</div>';
+						}
+
+						$concatenate_num++;						
+					}
+				}
+
+				echo $carousel_images_code;
+			}
+			else{
+
+				while($row = $result->fetch_assoc()) {
+		
+					if($row["teams_name"] == $teams_name){
+				
+						echo $row[$what_to_get];	
+						break;
+					}
+				}
+			}
+		}
+		else {
+	
+			echo "0 results";
+		}
+	
+		$conn->close();
+
+		
+	}
 
 	
-	function(){
+	function get_card_article_buttons(){
+		
+		//get details from config file to help us connect to the database
+		include("../config.php");
+	
+	
+		$sql = "SELECT basketball_teams_website_items.teams_name, basketball_teams_website_items.teams_description,
+			basketball_teams_website_images.images_path, basketball_teams_website_images.images_title
+			FROM basketball_teams_website_items
+			INNER JOIN basketball_teams_website_images
+			ON basketball_teams_website_items.teams_id=basketball_teams_website_images.teams_id;";
+	
+	
+		$result = $conn->query($sql);
+	
+		$carousel_images_code = "";
+		$concatenate_num = 1;
+			
+		if ($result->num_rows > 0) {
+								
+			if($what_to_get == "slide_show"){
 
+				while($row = $result->fetch_assoc()) {
+		
+					if($row["teams_name"] == $teams_name){
+						
+						//dont display first image from table as this is the logo
+						if($concatenate_num == 2){
 
+							$carousel_images_code .= '<div class="card-img-top carousel-item active">' . '<img class="d-block w-100" src="'
+								. $row["images_path"] . '" alt="' . $row["images_title"] .'">' . '</div>';
+							$first_concatenate = false;
+						}else if($concatenate_num > 2){
+
+						$carousel_images_code .= '<div class="card-img-top carousel-item">' . '<img class="d-block w-100" src="' . $row["images_path"]
+							. '" alt="' . $row["images_title"] .'">' . '</div>';
+						}
+
+						$concatenate_num++;						
+					}
+				}
+
+				echo $carousel_images_code;
+			}
+			else{
+
+				while($row = $result->fetch_assoc()) {
+		
+					if($row["teams_name"] == $teams_name){
+				
+						echo $row[$what_to_get];	
+						break;
+					}
+				}
+			}
+		}
+		else {
+	
+			echo "0 results";
+		}
+	
+		$conn->close();
+
+		
 	}
 ?>
 
@@ -49,116 +180,315 @@
 
 				<div class="row">
 
-					<!-- list of buttons with team name, clicking on a team button will change what the article is about -->
-					<div class="col-sm-3">
+					<div class="col-sm-4"  style="padding-bottom:50px;">
 
-						<div class="btn-group-vertical ">
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">1</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">2</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">3</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">4</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">5</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">6</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">7</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">8</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">9</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">10</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">11</button>
-							<button type="button" class="btn btn-secondary navbar-dark bg-dark">12</button>
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("New York Knicks", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="card-body text-center">
+
+								<h4 class="card-title"> <?php get_card_details("New York Knicks", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("New York Knicks", "teams_description")?> </p>
+							</div>
 						</div>
 					</div>
 
 
-					<!-- this is where the article is displayed -->
-					<div class="col-lg-9 text-center">
 
-						<!-- row for article title and image slide show-->
-						<div class="row" style="padding-bottom:50px;">
+					<div class="col-sm-4"  style="padding-bottom:50px;">
 
-							<div class="col">
+						<div class="card border-dark" >
 
-								<h1> Title example <h1>
+							<div style="padding: 20px">
 
-								<div class="med-gap"></div>
-								<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
 									<div class="carousel-inner">
-										<div class="carousel-item active">
-										<img class="d-block w-100" src="..." alt="First slide">
-										</div>
-										<div class="carousel-item">
-										<img class="d-block w-100" src="..." alt="Second slide">
-										</div>
-										<div class="carousel-item">
-										<img class="d-block w-100" src="..." alt="Third slide">
-										</div>
+
+										<?php get_card_details("Miami Heat", "slide_show")?>
 									</div>
-									<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-										<span class="sr-only">Previous</span>
-									</a>
-									<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-										<span class="carousel-control-next-icon" aria-hidden="true"></span>
-										<span class="sr-only">Next</span>
-									</a>
-								</div> -->
-							</div>						
-						</div>
-							
-
-						<!--row for article text-->
-						<div class="row" style="padding-bottom:50px;">	
-
-							<div class="col">
-							
-							</div>
-						</div>
-
-
-						<!--row for author text-->
-						<div class="row" style="padding-bottom:50px;">
-
-							<div class="col">
-							<h3> Wrote by author '<!--add authors name -->' </h3> 
-
-							</div>
-						</div>
-
-
-						<!--row for user to create a comment-->
-						<div class="row" style="padding-bottom:50px;">
-
-							<div class="col">
-							
-							</div>
-						</div>
-
-
-						<!--row for comments-->
-						<div class="row" style="padding-bottom:50px; margin-left: 10%; margin-right: 10%;">	
-
-						<!-- every time a comment is found relating to a article then there will be a php loop that echoes them out liek this example -->
-						<?php for($i = 0; 10 > $i; $i++){echo '
-							<div class="card border-dark" style="width:100%; margin-bottom:60px" >
-
-								<div class="card-header text-center">
-
-									<h4 class="card-title">"users_name - title_of_comment eg. Johnny - Best article ive ever read"</h4>
-								</div>
-
-
-								<div class="card-body text-center">
-
-									<p class="card-text">"text_for_comment eg. yes best article ever this is the msot example examples of all examples if this example was an example then EXAMPLE!"</p>
-								</div>
-
-
-								<div class="card-footer text-center">
-
-									<a href="week10.php" class="btn btn-primary streched-link">Delete (only display if the user created the card)</a><br>
 								</div>
 							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Miami Heat", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Miami Heat", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>
+
 						
-							';}?>
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Los Angelese Lakers", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Los Angelese Lakers", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Los Angelese Lakers", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+					
+				<div class="row" style="padding-bottom:50px;">	
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Minnesota Timberwolves", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body">
+								
+								<h4 class="card-title"> <?php get_card_details("Minnesota Timberwolves", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Minnesota Timberwolves", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>						
+
+				
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Oklahoma City Thunder", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Oklahoma City Thunder", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Oklahoma City Thunder", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>
+						
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Houston Rockets", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Houston Rockets", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Houston Rockets", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row" style="padding-bottom:50px;">
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Golden State Warriors", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Golden State Warriors", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Golden State Warriors", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>
+						
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Cleveland Cavaliers", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Cleveland Cavaliers", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Cleveland Cavaliers", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>
+						
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Chicago Bulls", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Chicago Bulls", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Chicago Bulls", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>
+				</div>
+						
+
+
+				<div class="row" style="padding-bottom:50px;">
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Indiana Pacers", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Indiana Pacers", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Indiana Pacers", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>
+						
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Toronto Raptors", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Toronto Raptors", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Toronto Raptors", "teams_description")?> </p>
+							</div>
+						</div>
+					</div>	
+
+
+					<div class="col-sm-4"  style="padding-bottom:50px;">
+
+						<div class="card border-dark" >
+
+							<div style="padding: 20px">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+									<div class="carousel-inner">
+
+										<?php get_card_details("Utah Jazz", "slide_show")?>
+									</div>
+								</div>
+							</div>
+
+							
+							<div class="card-body text-center">
+								
+								<h4 class="card-title"> <?php get_card_details("Utah Jazz", "teams_name")?> </h4>
+								<p class="card-text"> <?php get_card_details("Utah Jazz", "teams_description")?> </p>
+							</div>
 						</div>
 					</div>
 				</div>
