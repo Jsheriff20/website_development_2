@@ -60,6 +60,6 @@ $stmt = mysqli_stmt_init($conn);
     else{
         mysqli_stmt_bind_param($stmt, "ssii", $comments_title, $comments_text, $users_id, $articles_id);
 		mysqli_stmt_execute($stmt);
-		header("location: article_page.php");
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 ?>

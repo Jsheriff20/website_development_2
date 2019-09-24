@@ -112,7 +112,7 @@
 	
 	
 		$result = $conn->query($sql);
-			
+		$carousel_comments_code = "";
 					
 		if ($result->num_rows > 0) {
 									
