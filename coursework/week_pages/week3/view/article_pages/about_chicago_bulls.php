@@ -1,25 +1,25 @@
-<?php include_once("php_functions.php") ?>
 
 <!DOCTYPE html>
+<?php include_once("../../model/article_functions.php") ?>
 <html lang="en">
 		<head>
-			<title color="white"><?php get_article_details("About Utah Jazz", "articles_title") ?></title>
+			<title color="white"><?php //get_article_details("About Chicago Bulls", "articles_title") ?></title>
 
 
-			<?php include_once("../link_include.php");?>
+			<?php include_once("../../link_include.php");?>
 			
 
 			<header class="banner navbar-fixed-top">
 				
 				<section class= "top-right">
 					
-					<img class= "banner_image" src= "../images/nba_logo.jpg" alt= "nba logo"> 
+					<img class= "banner_image" src= "../../../../images/nba_logo.jpg" alt= "nba logo"> 
 				</section>
 
-				<h3> <?php get_article_details("About Utah Jazz", "articles_title") ?> </h3>
+				<h3>  </h3>
 			</header>
 
-			<?php include_once("../nav_bar.html");?>
+			<?php include_once("../../nav_bar.html");?>
 		</head>
 
 
@@ -35,6 +35,7 @@
 
 
 				<div class="row">
+				<?php get_article("About Chicago Bulls");?>
 
 					<!-- this is where the article is displayed -->
 					<div class="col-lg-12 text-center">
@@ -45,13 +46,13 @@
 							<div class="col">
 
 								<!-- title of the article -->
-								<h1> <?php get_article_details("About Utah Jazz", "articles_title") ?> <h1>
+								<h1> <?php //get_article_details("About Chicago Bulls", "articles_title") ?> <h1>
 
 
 							<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
 								<div class="carousel-inner">
 
-									<?php get_article_images("About Utah Jazz");?>
+									<?php //get_article_images("About Chicago Bulls");?>
 								</div>
 							</div>
 							
@@ -64,7 +65,7 @@
 
 							<div class="col">
 							
-								<?php get_article_details("About Utah Jazz", "articles_text") ?>
+								<?php //get_article_details("About Chicago Bulls", "articles_text") ?>
 							</div>
 						</div>
 
@@ -73,7 +74,7 @@
 						<div class="row" style="padding-bottom:50px; margin-left: 10%; margin-right: 10%;">
 
 							<div class="col">
-								<h3> Wrote by author '<?php get_article_details("About Utah Jazz", "articles_author") ?>' </h3>
+								<h3> Wrote by author '<?php //get_article_details("About Chicago Bulls", "articles_author") ?>' </h3>
 
 							</div>
 						</div>
@@ -84,9 +85,9 @@
 
 							<div class="col">
 
-							<h2> <?php get_amount_of_comments("About Utah Jazz")?> </h2>
+							<h2> <?php //get_amount_of_comments("About Chicago Bulls")?> </h2>
 
-								<form name="add_comment" id="add_comment" action="add_comment.php" onsubmit="return validate_comment()" method="post">
+								<form name="add_comment" id="add_comment" action="../../model/add_comment.php" onsubmit="return validate_comment()" method="post">
 									<table class="table">
 										<tbody>
 											<tr>
@@ -100,7 +101,7 @@
 												<td><input name="comments_text" id="comments_text" type="text" placeholder="add your comment..." required /> </td>
 											</tr>
 
-											<input type='hidden' name='articles_title' value='<?php get_article_details("About Utah Jazz", "articles_title")?>'/>
+											<input type='hidden' name='articles_title' value='<?php //get_article_details("About Chicago Bulls", "articles_title")?>'/>
 
 											
 
@@ -118,7 +119,7 @@
 						<!--row for comments-->
 						<div class="row" style="padding-bottom:10px; margin-left: 10%; margin-right: 10%;">	
 
-							<?php get_article_comments("About Utah Jazz")?>
+							<?php //get_article_comments("About Chicago Bulls")?>
 						</div>
 					</div>
 				</div>

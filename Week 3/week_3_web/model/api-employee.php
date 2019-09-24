@@ -51,4 +51,18 @@
 		return json_encode($row);
 	}
 	
+
+
+	//  function to get all the employees
+	function deleteAnEmployee()
+	{
+	
+		global $conn;
+		$employee_number = $_POST["employee_number"];
+		$sql = "DELETE FROM employee WHERE eno = $employee_number;";
+		$result = mysqli_query($conn, $sql);
+
+		//run $result function
+		$conn->exec($result);
+	}
 ?>

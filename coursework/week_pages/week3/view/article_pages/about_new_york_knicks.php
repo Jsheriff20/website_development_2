@@ -86,7 +86,7 @@
 
 							<h2> <?php get_amount_of_comments("About New York Knicks")?> </h2>
 
-								<form name="add_comment" id="add_comment" action="add_comment.php" onsubmit="return validate_comment()" method="post">
+								<form name="add_comment" id="add_comment" action="../../model/add_comment.php" onsubmit="return validate_comment()" method="post">
 									<table class="table">
 										<tbody>
 											<tr>
