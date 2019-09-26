@@ -6,12 +6,6 @@
 		exit();
 	}
 
-
-	//used to display errors when testing remove once ready to be published.
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
 			
     function get_article_details($articles_title, $what_to_get){
 
@@ -160,7 +154,6 @@
 		
 		//get details from config file to help us connect to the database
 		include("../config.php");
-	
 	
 	
 		$sql = "SELECT basketball_teams_website_articles.articles_title, basketball_teams_website_comments.comments_title
