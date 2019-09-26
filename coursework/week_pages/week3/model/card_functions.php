@@ -4,7 +4,7 @@
 function get_card_details($teams_name, $what_to_get){
 
     //get details from config file to help us connect to the database
-    include("../config.php");
+    include("connect.php");
 
 
     $sql = "SELECT basketball_teams_website_items.teams_name, basketball_teams_website_items.teams_description,
@@ -71,14 +71,9 @@ function get_card_details($teams_name, $what_to_get){
 
 
 function get_card_article_buttons($teams_name){
-
-    //used to display errors when testing remove once ready to be published.
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
     
     //get details from config file to help us connect to the database
-    include("../config.php");
+    include("connect.php");
 
 
     $sql = "SELECT basketball_teams_website_items.teams_name, basketball_teams_website_articles.articles_title,
@@ -92,6 +87,7 @@ error_reporting(E_ALL);
 
 
     $result = $conn->query($sql);
+    $article_buttons;
         
     if ($result->num_rows > 0) {
 
@@ -99,16 +95,81 @@ error_reporting(E_ALL);
     
             if($row["teams_name"] == $teams_name){
                     
-                echo '<div class="card-footer text-center">' . '<a href="' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
+                $article_buttons .= '<div class="card-footer text-center">' . '<a href="' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
             }
         }
     }
 
     $conn->close();
+
+    return json_encode($article_buttons);
 }
 
 
 function get_all_items(){
-		
+
+    //get details from config file to help us connect to the database
+    include("connect.php");
+
+
+    $sql = "SELECT * FROM basketball_teams_website_items";
+
+    $articles_titles = array();
+
+    $result = $conn->query($sql);
+            
+    if ($result->num_rows > 0) {
+
+        while($row = $result->fetch_assoc()) {
+                    
+            array_push($articles_titles, $row["teams_name"]);
+        }
+    }
+
+    $conn->close();
+
+
+    for ($i = 0; $i < sizeof($articles_titles); $i++) {
+        switch ($articles_titles[$i]) {
+            case 'Chicago Bulls' :
+                // do something
+                echo "bulls!";
+                break ;
+            case 'customers' :
+                // do something
+                break ;
+            case 'Models' :
+                // do something
+                break ;
+         }
+     }
+
+    // $article_buttons_json = get_card_article_buttons($team_name);
+
+    // $article_buttons = json_decode($article_buttons_json);
+
+    // <div class="card border-dark" >
+
+	// 						<div style="padding: 20px">
+
+	// 							<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+	// 								<div class="carousel-inner">
+
+	// 									<?php get_card_details("Utah Jazz", "slide_show")
+	// 								</div>
+	// 							</div>
+	// 						</div>
+
+							
+	// 						<div class="card-body text-center">
+								
+	// 							<h4 class="card-title"> <?php get_card_details("Utah Jazz", "teams_name") </h4>
+	// 							<p class="card-text"> <?php get_card_details("Utah Jazz", "teams_description") </p>
+	// 						</div>
+
+							
+	// 						<?php get_card_article_buttons("Utah Jazz") 
+    // 					</div>
 }
 ?>

@@ -23,7 +23,7 @@
 			basketball_teams_website_articles.articles_author
 			FROM basketball_teams_website_articles
 			INNER JOIN basketball_teams_website_images
-			ON basketball_teams_website_articles.articles_id=basketball_teams_website_images.articles_id;";
+			WHERE basketball_teams_website_articles.articles_id=basketball_teams_website_images.articles_id;";
 		
 	
 		$result = $conn->query($sql);

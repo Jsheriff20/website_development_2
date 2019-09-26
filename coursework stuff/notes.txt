@@ -18,6 +18,10 @@ on the articles pages only display and allow the user to delete a comment if the
 
 add external links and videos to the articles
 
+change the funcions so that instead og getting the article name get the article id
+
+remove the delete button on the comments
+
 
 
 

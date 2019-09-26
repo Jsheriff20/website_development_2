@@ -1,5 +1,5 @@
 <?php 
-include("../config.php");
+include("connect.php");
 
 
 //get infomation from comment form
