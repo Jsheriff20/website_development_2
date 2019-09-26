@@ -23,7 +23,7 @@ change the funcions so that instead og getting the article name get the article 
 remove the delete button on the comments
 
 
-
+make output in week 3 in json
 
 
 
@@ -38,4 +38,5 @@ DONT DELETE AND MAKE SURE IS TRUE BEFORE SUBMIT!!
 try and have the code all condenced by using include and functions
 make sure any images/ stolen text is referenced
 remove any inline css such as style="" etc and give them ids and have it in the css file 
-
+make sure nav bars are working
+make sure all is commented and code is correcly indented

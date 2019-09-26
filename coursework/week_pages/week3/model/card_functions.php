@@ -1,7 +1,8 @@
 
-<?php 
+<?php
 
-function get_card_details($teams_name, $what_to_get){
+function get_card_details($teams_name, $what_to_get)
+{
 
     //get details from config file to help us connect to the database
     include("connect.php");
@@ -20,58 +21,54 @@ function get_card_details($teams_name, $what_to_get){
 
     $carousel_images_code = "";
     $concatenate_num = 1;
-        
-    if ($result->num_rows > 0) {
-                            
-        if($what_to_get == "slide_show"){
 
-            while($row = $result->fetch_assoc()) {
-    
-                if($row["teams_name"] == $teams_name){
-                    
+    if ($result->num_rows > 0) {
+
+        if ($what_to_get == "slide_show") {
+
+            while ($row = $result->fetch_assoc()) {
+
+                if ($row["teams_name"] == $teams_name) {
+
                     //dont display first image from table as this is the logo
-                    if($concatenate_num == 2){
+                    if ($concatenate_num == 2) {
 
                         $carousel_images_code .= '<div class="card-img-top carousel-item active">' . '<img class="d-block w-100" src="'
-                            . $row["images_path"] . '" alt="' . $row["images_title"] .'">' . '</div>';
+                            . '../../' . $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
                         $first_concatenate = false;
-                    }else if($concatenate_num > 2){
+                    } else if ($concatenate_num > 2) {
 
-                    $carousel_images_code .= '<div class="card-img-top carousel-item">' . '<img class="d-block w-100" src="' . $row["images_path"]
-                        . '" alt="' . $row["images_title"] .'">' . '</div>';
+                        $carousel_images_code .= '<div class="card-img-top carousel-item">' . '<img class="d-block w-100" src="' . '../../' .
+                            $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
                     }
 
-                    $concatenate_num++;						
+                    $concatenate_num++;
                 }
             }
 
-            echo $carousel_images_code;
-        }
-        else{
+            return json_encode($carousel_images_code);
+        } else {
 
-            while($row = $result->fetch_assoc()) {
-    
-                if($row["teams_name"] == $teams_name){
-            
-                    echo $row[$what_to_get];	
+            while ($row = $result->fetch_assoc()) {
+
+                if ($row["teams_name"] == $teams_name) {
+
+                    return json_encode($row[$what_to_get]);
                     break;
                 }
             }
         }
-    }
-    else {
-
+    } else {
         echo "0 results";
     }
 
     $conn->close();
-
-    
 }
 
 
-function get_card_article_buttons($teams_name){
-    
+function get_card_article_buttons($teams_name)
+{
+
     //get details from config file to help us connect to the database
     include("connect.php");
 
@@ -87,14 +84,14 @@ function get_card_article_buttons($teams_name){
 
 
     $result = $conn->query($sql);
-    $article_buttons;
-        
+    $article_buttons = "";
+
     if ($result->num_rows > 0) {
 
-        while($row = $result->fetch_assoc()) {
-    
-            if($row["teams_name"] == $teams_name){
-                    
+        while ($row = $result->fetch_assoc()) {
+
+            if ($row["teams_name"] == $teams_name) {
+
                 $article_buttons .= '<div class="card-footer text-center">' . '<a href="' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
             }
         }
@@ -106,7 +103,8 @@ function get_card_article_buttons($teams_name){
 }
 
 
-function get_all_items(){
+function get_all_items()
+{
 
     //get details from config file to help us connect to the database
     include("connect.php");
@@ -114,62 +112,76 @@ function get_all_items(){
 
     $sql = "SELECT * FROM basketball_teams_website_items";
 
-    $articles_titles = array();
+    $teams_name = array();
 
     $result = $conn->query($sql);
-            
+
     if ($result->num_rows > 0) {
 
-        while($row = $result->fetch_assoc()) {
-                    
-            array_push($articles_titles, $row["teams_name"]);
+        while ($row = $result->fetch_assoc()) {
+
+            array_push($teams_name, $row["teams_name"]);
         }
     }
 
     $conn->close();
 
 
-    for ($i = 0; $i < sizeof($articles_titles); $i++) {
-        switch ($articles_titles[$i]) {
-            case 'Chicago Bulls' :
-                // do something
-                echo "bulls!";
-                break ;
-            case 'customers' :
-                // do something
-                break ;
-            case 'Models' :
-                // do something
-                break ;
-         }
-     }
+    for ($i = 0; $i < sizeof($teams_name); $i++) {
 
-    // $article_buttons_json = get_card_article_buttons($team_name);
+        $cards_buttons_json = get_card_article_buttons($teams_name[$i]);
+        $cards_slideshow_json = get_card_details($teams_name[$i], "slide_show");
+        $cards_teams_description = get_card_details($teams_name[$i], "teams_description");
 
-    // $article_buttons = json_decode($article_buttons_json);
+        $buttons = json_decode($cards_buttons_json);
+        $slideshow = json_decode($cards_slideshow_json);
+        $description = json_decode($cards_teams_description);
 
-    // <div class="card border-dark" >
 
-	// 						<div style="padding: 20px">
 
-	// 							<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        //starting and ending rows 
+        if ($i == 0) {
 
-	// 								<div class="carousel-inner">
+            echo '<div class="row">';
+        } else if ($i == 3 || $i == 6 || $i == 9) {
 
-	// 									<?php get_card_details("Utah Jazz", "slide_show")
-	// 								</div>
-	// 							</div>
-	// 						</div>
+            echo '</div">' . '</div>';
+            echo '<div class="row">';
+        }
 
-							
-	// 						<div class="card-body text-center">
-								
-	// 							<h4 class="card-title"> <?php get_card_details("Utah Jazz", "teams_name") </h4>
-	// 							<p class="card-text"> <?php get_card_details("Utah Jazz", "teams_description") </p>
-	// 						</div>
 
-							
-	// 						<?php get_card_article_buttons("Utah Jazz") 
-    // 					</div>
+
+        echo    '<div class="col-sm-4"  style="padding-bottom:50px;">' .
+            '<div class="card border-dark" >' .
+
+            '<div style="padding: 20px">' .
+
+            '<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">' .
+
+            '<div class="carousel-inner">' .
+
+            $slideshow .
+            '</div>' .
+            '</div>' .
+            '</div>' .
+
+
+            '<div class="card-body text-center">' .
+
+            '<h4 class="card-title">' . $teams_name[$i] . '</h4>' .
+            '<p class="card-text">' . $description . '</p>' .
+            '</div>' .
+
+
+            $buttons .
+            '</div>' .
+            '</div>';
+
+        //end final row
+        if ($i == 11) {
+
+            echo '</div">';
+        }
+    }
 }
 ?>
