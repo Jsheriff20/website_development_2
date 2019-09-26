@@ -280,9 +280,7 @@
 		$comments = json_decode($comments_json);
 		$nav_bar = json_decode($nav_bar_json);
 
-		$article;
-
-		$article.=  	'<head>' .
+		$article=  	'<head>' .
 
 					'<title color="white">' . $title . '</title>' .
 
@@ -354,7 +352,7 @@
 		
 										'<h2>"' . $comments_number . '"</h2>' .
 		
-										'<form name="add_comment" id="add_comment" action="../../model/add_comment.php" onsubmit="return validate_comment()" method="post">' .
+										'<form name="add_comment" id="add_comment" action="../../controller/add_comment.php" onsubmit="return validate_comment()" method="post">' .
 											
 										'<table class="table">' .
 

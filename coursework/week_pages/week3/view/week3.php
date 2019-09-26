@@ -50,7 +50,7 @@ include_once("../model/card_functions.php");
 
 	<main class="main_container">
 
-		<?php get_all_items(); ?>
+		<?php echo json_decode(get_all_items()); ?>
 	</main>
 </body>
 

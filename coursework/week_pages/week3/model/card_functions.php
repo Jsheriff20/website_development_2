@@ -92,7 +92,7 @@ function get_card_article_buttons($teams_name)
 
             if ($row["teams_name"] == $teams_name) {
 
-                $article_buttons .= '<div class="card-footer text-center">' . '<a href="' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
+                $article_buttons .= '<div class="card-footer text-center">' . '<a href="' . 'view/' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
             }
         }
     }
@@ -126,6 +126,7 @@ function get_all_items()
 
     $conn->close();
 
+    $all_items = "";
 
     for ($i = 0; $i < sizeof($teams_name); $i++) {
 
@@ -142,16 +143,16 @@ function get_all_items()
         //starting and ending rows 
         if ($i == 0) {
 
-            echo '<div class="row">';
+            $all_items .= '<div class="row">';
         } else if ($i == 3 || $i == 6 || $i == 9) {
 
-            echo '</div">' . '</div>';
-            echo '<div class="row">';
+            $all_items .= '</div">' . '</div>';
+            $all_items .= '<div class="row">';
         }
 
 
 
-        echo    '<div class="col-sm-4"  style="padding-bottom:50px;">' .
+        $all_items .=    '<div class="col-sm-4"  style="padding-bottom:50px;">' .
             '<div class="card border-dark" >' .
 
             '<div style="padding: 20px">' .
@@ -180,8 +181,10 @@ function get_all_items()
         //end final row
         if ($i == 11) {
 
-            echo '</div">';
+            $all_items .= '</div">';
         }
     }
+    //return json_encode($all_items);
+    return json_encode($all_items);
 }
 ?>
