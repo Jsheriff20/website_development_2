@@ -22,9 +22,7 @@ change the funcions so that instead og getting the article name get the article 
 
 remove the delete button on the comments
 
-
-make output in week 3 in json
-
+include videos on article pages
 
 
 
