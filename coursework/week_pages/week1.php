@@ -28,7 +28,7 @@
         	basketball_teams_website_images.images_title, basketball_teams_website_images.images_path
             FROM basketball_teams_website_items
             INNER JOIN basketball_teams_website_images
-            ON basketball_teams_website_items.images_logo_id=basketball_teams_website_images.teams_id;";
+            ON basketball_teams_website_items.images_logo_id=basketball_teams_website_images.teams_id and basketball_teams_website_items.teams_name = '$teams_name';";
 
 
         $result = $conn->query($sql);
@@ -39,11 +39,8 @@
 								
 			while($row = $result->fetch_assoc()) {
 
-                if($row["teams_name"] == $teams_name){
-
-						echo $row[$what_to_get];
-						break;
-					}
+					echo $row[$what_to_get];
+					break;
 				}
 			}
 		else {

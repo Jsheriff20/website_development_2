@@ -12,8 +12,8 @@ function get_card_details($teams_name, $what_to_get)
         basketball_teams_website_images.images_path, basketball_teams_website_images.images_title
         FROM basketball_teams_website_items
         INNER JOIN basketball_teams_website_images
-        ON basketball_teams_website_items.teams_id = basketball_teams_website_images.teams_id
-        ;";
+        ON basketball_teams_website_items.teams_id = basketball_teams_website_images.teams_id 
+        and basketball_teams_website_items.teams_name = '$teams_name';";
 
 
 
@@ -28,22 +28,19 @@ function get_card_details($teams_name, $what_to_get)
 
             while ($row = $result->fetch_assoc()) {
 
-                if ($row["teams_name"] == $teams_name) {
+                //dont display first image from table as this is the logo
+                if ($concatenate_num == 2) {
 
-                    //dont display first image from table as this is the logo
-                    if ($concatenate_num == 2) {
+                    $carousel_images_code .= '<div class="card-img-top carousel-item active">' . '<img class="d-block w-100" src="'
+                        . '../../' . $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
+                    $first_concatenate = false;
+                } else if ($concatenate_num > 2) {
 
-                        $carousel_images_code .= '<div class="card-img-top carousel-item active">' . '<img class="d-block w-100" src="'
-                            . '../../' . $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
-                        $first_concatenate = false;
-                    } else if ($concatenate_num > 2) {
-
-                        $carousel_images_code .= '<div class="card-img-top carousel-item">' . '<img class="d-block w-100" src="' . '../../' .
-                            $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
-                    }
-
-                    $concatenate_num++;
+                    $carousel_images_code .= '<div class="card-img-top carousel-item">' . '<img class="d-block w-100" src="' . '../../' .
+                        $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
                 }
+
+                $concatenate_num++;
             }
 
             return json_encode($carousel_images_code);
@@ -80,7 +77,8 @@ function get_card_article_buttons($teams_name)
     INNER JOIN basketball_teams_website_sub_article_to_team
     ON basketball_teams_website_items.teams_id = basketball_teams_website_sub_article_to_team.sub_teams_id
     INNER JOIN basketball_teams_website_articles
-    ON basketball_teams_website_articles.articles_id = basketball_teams_website_sub_article_to_team.sub_articles_id ;";
+    ON basketball_teams_website_articles.articles_id = basketball_teams_website_sub_article_to_team.sub_articles_id 
+    and basketball_teams_website_items.teams_name = '$teams_name' ;";
 
 
     $result = $conn->query($sql);
@@ -90,10 +88,7 @@ function get_card_article_buttons($teams_name)
 
         while ($row = $result->fetch_assoc()) {
 
-            if ($row["teams_name"] == $teams_name) {
-
-                $article_buttons .= '<div class="card-footer text-center">' . '<a href="' . 'view/' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
-            }
+            $article_buttons .= '<div class="card-footer text-center">' . '<a href="' . 'view/' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
         }
     }
 
