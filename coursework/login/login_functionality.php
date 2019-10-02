@@ -1,7 +1,5 @@
 <?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
+	session_start();
 
 	include("../config.php");
 
@@ -43,7 +41,6 @@
 		if ($row["users_username"] == $username && $password_verified == true){
 
 			header("location: ../week_pages/week1.php");
-			session_start();
 			$_SESSION['logged_in'] = "1";
 			$_SESSION['username'] = $username;
 			

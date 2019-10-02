@@ -4,11 +4,6 @@ make sure that picutres are not to large (which may slow down site) (if a user 3
 make it into a smaller size) - do this for the logo
 make articles and cards text body not center but leave the cards title center
 
-put nav bar includes inside of a folder called nav bars
-delete any un needed javascript stuff (such as functions
-
-
-fix background on week2 page
 
 make commentarys display from database
 
@@ -18,15 +13,25 @@ on the articles pages only display and allow the user to delete a comment if the
 
 add external links and videos to the articles
 
-change the funcions so that instead og getting the article name get the article id
-
-remove the delete button on the comments
-
 include videos on article pages
 
+fix the nav bars (the links and also add the register and login pages to the nav bar on every page and vice verser
 
+put all the nav bars in one file and echo the relevent once depending on a function input
 
+change week 2 articles to use article_id nota rticle_name to get articles
 
+login page nav bar week pages drop down not working
+
+change article pages in week three so there is only one and just the id in the function will change 
+
+Fix week 3 comments (not working)
+
+use prepare staments for when getting a sepecific item from the database
+
+move all work into an mvc format 
+
+make login and register a json code
 
 
 
