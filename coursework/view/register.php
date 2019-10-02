@@ -4,7 +4,7 @@
 <head>
 
 	<title>Register</title>
-	<?php include_once("../link_include.php");?>
+	<?php include_once("link_include.php");?>
 	<script src="passwordscheck.js"></script>
 
 
@@ -12,15 +12,15 @@
 				
 			<section class= "top-right">
 
-				<img class= "banner_image" src= "../../images/nba_logo.jpg" alt= "nba logo"> 
+				<img class= "banner_image" src= "images/nba_logo.jpg" alt= "nba logo"> 
 			</section>
 
 			<h1 id= "page_title">Register </h1>
 		</header>
 
 
-		<?php include_once("../../nav_bars.php");
-			get_nav_bar("login_register");?>
+		<?php include_once("nav_bars.php");
+			get_nav_bar("no_files_in_view");?>
 
 </head>
 
@@ -73,7 +73,7 @@
 				</tr>
 				<tr>
 					<th> </th>
-					<td><input type="submit" name="submit"  value="Register" action="../../view/login/login.php"></td>
+					<td><input type="submit" name="submit"  value="Register" action="login.php"></td>
 				</tr>
 			</tbody>
 		</table>	

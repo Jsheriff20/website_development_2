@@ -48,7 +48,7 @@
 			<title color="white">Week 1</title>
 
 
-			<?php include_once("../link_include.php");?>
+			<?php include_once("link_include.php");?>
 			
 
 			<header class="banner navbar-fixed-top">
@@ -62,7 +62,7 @@
 			</header>
 
 			<?php include_once("../nav_bars.php");
-			get_nav_bar("one_file_in");?>
+			get_nav_bar("one_file_in_view");?>
 		</head>
 
 

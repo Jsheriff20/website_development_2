@@ -99,11 +99,11 @@
 	
 				if($first_concatenate == true){
 
-					$carousel_images_code .= '<div class="carousel-item active">' . '<img class="d-block w-100" src="' . "../../../" . $row["images_path"] . '" alt="' . $row["images_title"] .'">' . '</div>';
+					$carousel_images_code .= '<div class="carousel-item active">' . '<img class="d-block w-100" src="' . $row["images_path"] . '" alt="' . $row["images_title"] .'">' . '</div>';
 					$first_concatenate = false;
 				}else{
 
-				$carousel_images_code .= '<div class="carousel-item">' . '<img class="d-block w-100" src="' . "../../../" . $row["images_path"] . '" alt="' . $row["images_title"] .'">' . '</div>';
+				$carousel_images_code .= '<div class="carousel-item">' . '<img class="d-block w-100" src="' . $row["images_path"] . '" alt="' . $row["images_title"] .'">' . '</div>';
 				}
 			}
 		}
@@ -190,31 +190,26 @@
 
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-							<a class="dropdown-item" href="../../../../week_pages/week1.php">Week 1</a>
-							<a class="dropdown-item" href="../../../../week_pages/week2.php">Week 2</a>
-							<a class="dropdown-item" href="../../../../week_pages/week3/view/week3.php">Week 3</a>
-							<a class="dropdown-item" href="../../../../week_pages/week4.php">Week 4</a>
-							<a class="dropdown-item" href="../../../../week_pages/week5.php">Week 5</a>
-							<a class="dropdown-item" href="../../../../week_pages/week6.php">Week 6</a>
-							<a class="dropdown-item" href="../../../../week_pages/week7.php">Week 7</a>
-							<a class="dropdown-item" href="../../../../week_pages/week8.php">Week 8</a>
-							<a class="dropdown-item" href="../../../../week_pages/week9.php">Week 9</a>
-							<a class="dropdown-item" href="../../../../week_pages/week10.php">Week 10</a>
-							<a class="dropdown-item" href="../../../../week_pages/week11.php">Week 11</a>
-							<a class="dropdown-item" href="../../../../week_pages/week12.php">Week 12</a>        
+							<a class="dropdown-item" href="../week_pages/week1.php">Week 1</a>
+							<a class="dropdown-item" href="../week_pages/week2.php">Week 2</a>
+							<a class="dropdown-item" href="../week_pages/week3.php">Week 3</a>
+							<a class="dropdown-item" href="../week_pages/week4.php">Week 4</a>
+							<a class="dropdown-item" href="../week_pages/week5.php">Week 5</a>
+							<a class="dropdown-item" href="../week_pages/week6.php">Week 6</a>
+							<a class="dropdown-item" href="../week_pages/week7.php">Week 7</a>
+							<a class="dropdown-item" href="../week_pages/week8.php">Week 8</a>
+							<a class="dropdown-item" href="../week_pages/week9.php">Week 9</a>
+							<a class="dropdown-item" href="../week_pages/week10.php">Week 10</a>
+							<a class="dropdown-item" href="../week_pages/week11.php">Week 11</a>
+							<a class="dropdown-item" href="../week_pages/week12.php">Week 12</a>        
 						</div>
 					</li>
 
 
 					<li class="nav-item">
-						<a class="nav-link" href="../../../../commentary.php">Commentary</a>
+						<a class="nav-link" href="../commentary.php">Commentary</a>
 					</li>
 
-
-					<li class="nav-item">
-							<a class="nav-link" href="../../../../my_account/my_account.php">My Account</a>
-					</li>
-					
 
 					<!-- empty buttons to space out from logout button-->
 					<li class="nav-item">
@@ -230,17 +225,17 @@
 					if($_SESSION["logged_in"] == 1){
 
 						$nav_bar .= '<li class="nav-item">
-								<a class="nav-link" href="../../../../logout/logout.php">Log Out</a>
+								<a class="nav-link" href="../logout.php">Log Out</a>
 								</li>';
 					}
 					else{
 
 						$nav_bar .=    '<li class="nav-item">
-									<a class="nav-link" href="../../../../login/login.php">Login</a>
+									<a class="nav-link" href="../login.php">Login</a>
 								</li>
 									
 								<li class="nav-item">
-									<a class="nav-link" href="../../../../register/register.php">Register</a>
+									<a class="nav-link" href="../register.php">Register</a>
 								</li>';
 					}
 				$nav_bar .= '</ul>                        
@@ -280,7 +275,7 @@
 						
 						'<section class= "top-right">' .
 								
-							'<img class= "banner_image" src= "../../../../images/nba_logo.jpg" alt= "nba logo">' . 
+							'<img class= "banner_image" src= "../images/nba_logo.jpg" alt= "nba logo">' . 
 						'</section>' .
 			
 						'<h3>' . $title . '</h3>' .

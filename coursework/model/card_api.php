@@ -32,11 +32,11 @@ function get_card_details($teams_id, $what_to_get)
                 if ($concatenate_num == 2) {
 
                     $carousel_images_code .= '<div class="card-img-top carousel-item active">' . '<img class="d-block w-100" src="'
-                        . '../../' . $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
+                         . $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
                     $first_concatenate = false;
                 } else if ($concatenate_num > 2) {
 
-                    $carousel_images_code .= '<div class="card-img-top carousel-item">' . '<img class="d-block w-100" src="' . '../../' .
+                    $carousel_images_code .= '<div class="card-img-top carousel-item">' . '<img class="d-block w-100" src="' .
                         $row["images_path"] . '" alt="' . $row["images_title"] . '">' . '</div>';
                 }
 
@@ -85,7 +85,7 @@ function get_card_article_buttons($teams_id)
 
         while ($row = $result->fetch_assoc()) {
 
-            $article_buttons .= '<div class="card-footer text-center">' . '<a href="' . 'view/' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
+            $article_buttons .= '<div class="card-footer text-center">' . '<a href="' . $row["articles_path"] . '" class="btn btn-primary streched-link">' . $row["articles_title"] . '</a><br>' . '</div>';
         }
     }
 

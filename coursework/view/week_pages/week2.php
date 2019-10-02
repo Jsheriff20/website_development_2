@@ -72,11 +72,6 @@
 
 	
 	function get_card_article_buttons($teams_name){
-
-		//used to display errors when testing remove once ready to be published.
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
 		
 		//get details from config file to help us connect to the database
 		include("../../model/config.php");
@@ -114,7 +109,7 @@
 			<title color="white">Week 2</title>
 
 
-			<?php include_once("../link_include.php");?>
+			<?php include_once("link_include.php");?>
 			
 
 			<header class="banner navbar-fixed-top">
@@ -128,7 +123,7 @@
 			</header>
 
 			<?php include_once("../nav_bars.php");
-			get_nav_bar("one_file_in");?>
+			get_nav_bar("one_file_in_view");?>
 		</head>
 
 

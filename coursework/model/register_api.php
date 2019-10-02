@@ -1,11 +1,20 @@
 <?php 
 
-function regsiter_user($username, $password_hashed, $first_name, $surname, $email, $contact_number){
+function register_user($encoded_register_data){
 
-	include("../../config.php");
+	include("config.php");
+
+	$register_data = json_decode($encoded_register_data);
+
+	$username = $register_data -> username;
+	$password_hashed = $register_data -> password_hashed;
+	$first_name = $register_data -> first_name;
+	$surname = $register_data -> surname;
+	$email = $register_data -> email;
+	$contact_number = $register_data -> contact_number;
+
 
 	// this will check to see if the username is already in use
-
 	$sql = "SELECT * FROM basketball_teams_website_users WHERE users_username = ?;";
 	$stmt = mysqli_stmt_init($conn);
 		if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -35,7 +44,7 @@ function regsiter_user($username, $password_hashed, $first_name, $surname, $emai
 		else{
 			mysqli_stmt_bind_param($stmt, "sssssi", $username, $password_hashed, $first_name, $surname, $email, $contact_number);
 			mysqli_stmt_execute($stmt);
-			header("Location: ../../view/login/login.php");
+			header("Location: ../view/login.php");
 		}
 	}
 }
