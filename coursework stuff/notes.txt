@@ -5,11 +5,8 @@ make it into a smaller size) - do this for the logo
 make articles and cards text body not center but leave the cards title center
 
 
-make commentarys display from database
-
 have a footer on the bottom of each page with my studnet number and name in it 
 
-on the articles pages only display and allow the user to delete a comment if they created it
 
 add external links and videos to the articles
 
@@ -17,21 +14,11 @@ include videos on article pages
 
 fix the nav bars (the links and also add the register and login pages to the nav bar on every page and vice verser
 
-put all the nav bars in one file and echo the relevent once depending on a function input
-
 change week 2 articles to use article_id nota rticle_name to get articles
-
-login page nav bar week pages drop down not working
 
 change article pages in week three so there is only one and just the id in the function will change 
 
-Fix week 3 comments (not working)
-
 use prepare staments for when getting a sepecific item from the database
-
-move all work into an mvc format 
-
-make login and register a json code
 
 
 
