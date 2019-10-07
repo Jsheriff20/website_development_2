@@ -1,0 +1,1 @@
+forms for login and register are checked to see if they are valid inputs using javascript and will give feedback on any errors however it is also checked in the php so that if the user disables javascript then it will still not allow any unvalid inputs

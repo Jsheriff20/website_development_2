@@ -1,0 +1,50 @@
+Security of websites
+
+Research further after 
+
+
+Don’t expect user to do what you want them to do
+	-	Always validate input
+
+Security issues
+	-	Global variables
+		o	Because you don’t have to declare it or know it exist
+	-	System error messages
+		o	Don’t have any error messages show once released 
+	-	SQL injection 
+		o	Validate any inputs
+		o	mysql_real_esacpe_string(trim())
+		o	use prepared statements
+	-	files manipulated
+	-	default values 
+	-	error messages 
+		o	if username or password is incorrect just say they are both wrong not just one (stops them telling which one is right)
+	-	Predictability 
+		o	Don’t have predictable directories 
+		o	Switch off the directory list
+		o	Put a simple index.html in all directories (this will give an error page/ take them to the front page)
+	-	Admin system
+		o	After a number of failures to login lock them out of being able to login for a while
+		o	Option to reset passwords/ usernames
+	-	Captcha technology
+		o	Use googles API captcha 
+	-	Database users
+		o	Coldfusion (adobe) has a better way of connecting to database as username and password is hidden
+		o	Some database hosters you can make separate users and give them different permissions such as a user that can only read info, write and one can only remove
+	-	Powderful commands
+		o	Look at hiding:
+				Ini_set()
+				Exec()
+				Fopen()
+				Passthru()
+				Readfile()
+				File()
+				Shell_exec()
+				System() 
+	-	Database fields (lengths and type)
+		o	If password is encrypted and gives a 32 character length encrypted password then only make the field 32 in size
+	-	Credit card details 
+		o	Have to follow regulations
+		o	Don’t store CVV
+	- site security
+		o	have backup

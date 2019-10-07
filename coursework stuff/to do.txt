@@ -12,13 +12,14 @@ add external links and videos to the articles
 
 include videos on article pages
 
-fix the nav bars (the links and also add the register and login pages to the nav bar on every page and vice verser
-
-change week 2 articles to use article_id nota rticle_name to get articles
+change week 2 articles to use article_id nota article_name to get articles
 
 change article pages in week three so there is only one and just the id in the function will change 
 
 use prepare staments for when getting a sepecific item from the database
+
+make it sure that if something is wrong in the register or login it will tell the user (if password or username is wrong on the login page just say password or username is incorrect DONT SAY which one is correct and which one is)
+
 
 
 

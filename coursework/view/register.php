@@ -68,7 +68,7 @@
 					<td><input name="email" id="email" type="email" placeholder="Type Your Email" required /></td>
 				</tr>
 				<tr>
-					<th>Contact Number </th>
+					<th>Contact Number (Starting With +44..)</th>
 					<td><input name="contact_number" id="contact_number" type="number" placeholder="Type Your Number" required /></td>
 				</tr>
 				<tr>

@@ -38,11 +38,13 @@ function register_user($encoded_register_data){
 		$sql = "INSERT INTO basketball_teams_website_users (users_username, users_password, users_first_name, users_surname, users_email, users_contact_number)
 			VALUES (?, ?, ?, ?, ?, ?);";
 		$stmt = mysqli_stmt_init($conn);
+
+		
 		if(!mysqli_stmt_prepare($stmt, $sql)){
 			echo "sql error";
 		}
 		else{
-			mysqli_stmt_bind_param($stmt, "sssssi", $username, $password_hashed, $first_name, $surname, $email, $contact_number);
+			mysqli_stmt_bind_param($stmt, "ssssss", $username, $password_hashed, $first_name, $surname, $email, $contact_number);
 			mysqli_stmt_execute($stmt);
 			header("Location: ../view/login.php");
 		}

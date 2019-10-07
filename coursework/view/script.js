@@ -5,6 +5,7 @@ function validate_register() {
     const confirm_password = document.forms["register"]["confirm_password"].value;
     const first_name = document.forms["register"]["first_name"].value;
     const surname = document.forms["register"]["surname"].value;
+    const email = document.forms["register"]["email"].value;
     const contact_number = document.forms["register"]["contact_number"].value;
     
 
@@ -34,7 +35,12 @@ function validate_register() {
        alert("Surname is to short!");
        return false;
     }
- 	else if (contact_number < 5){
+    else if (email.length > 60){
+
+        alert("Please enter a shorter email.");
+       return false;
+    }
+ 	else if (contact_number.length < 11){
 
  		alert("Please enter a valid contact number.");
         return false;
