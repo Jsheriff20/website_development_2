@@ -8,9 +8,14 @@ function validate_register() {
     const email = document.forms["register"]["email"].value;
     const contact_number = document.forms["register"]["contact_number"].value;
     
+    captcha_result = grecaptcha.getResponse()
 
+    if(captcha_result.length == 0){
 
-    if (username.length < 5) {
+        alert("Please verify yourself via the captcha!");
+        return false;
+    }
+    else if (username.length < 5) {
 
         alert("Username is to short!");
         return false;

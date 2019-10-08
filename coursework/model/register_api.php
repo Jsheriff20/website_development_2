@@ -22,7 +22,7 @@ function register_user($encoded_register_data){
 		}
 		else{
 			// bind parameter to placeholders
-			mysqli_stmt_bind_param($stmt, "s", $user_name);
+			mysqli_stmt_bind_param($stmt, "s", $username);
 			// run parameters inside of database
 			mysqli_stmt_execute($stmt);
 			$result = mysqli_stmt_get_result($stmt);
@@ -30,7 +30,7 @@ function register_user($encoded_register_data){
 			$username_availability = $row["users_id"];
 		}
 		//check if user has already gotten that username
-		if ($username_availability >= 1){
+		if ($username_availability > 0){
 			header("location: ../view/register.php");
 		}
 		else { //inputs registration infomation into database

@@ -5,12 +5,25 @@
 
 	<title>Register</title>
 	<?php include_once("link_include.php");?>
-	<script src="passwordscheck.js"></script>
 
+
+	<script type="text/javascript">
+
+      var recaptcha;
+      var onloadCallback = function() {
+        // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+        // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+        recaptcha = grecaptcha.render('recaptcha_checkbox', {
+          'sitekey' : '6LfverwUAAAAAGvNUnilSBhR2U9TBPS9jIuO1-ap',
+          'theme' : 'light'
+        });
+      };
+    </script>
+	<script src="passwordscheck.js"></script>
 
 		<header class="banner navbar-fixed-top">
 				
-			<section class= "top-right">
+			<section class= "top-right"> 
 
 				<img class= "banner_image" src= "images/nba_logo.jpg" alt= "nba logo"> 
 			</section>
@@ -21,15 +34,14 @@
 
 		<?php include_once("nav_bars.php");
 			get_nav_bar("no_files_in_view");?>
-
 </head>
 
 
 <body>
 	<main id="main_container">
 	<section class="row"></section>
-	<h1>Register!</h1>
-	<form name="register" id="register" action="../controller/add_new_user.php" onsubmit="return validate_register()" method="post">
+	<h1>Register</h1>
+	<form name="register" id="register" action="../controller/add_new_user.php" onsubmit="return validate_register()" method="post"> <!--    -->
 		<table class="table">
 			<tbody>
 				<tr>
@@ -71,15 +83,20 @@
 					<th>Contact Number (Starting With +44..)</th>
 					<td><input name="contact_number" id="contact_number" type="number" placeholder="Type Your Number" required /></td>
 				</tr>
+                <tr>
+					<th> </th>
+					<td><div id="recaptcha_checkbox"></div></td>
+				</tr>
 				<tr>
 					<th> </th>
-					<td><input type="submit" name="submit"  value="Register" action="login.php"></td>
+					<td><input type="submit" name="submit" value="Register"></td>
 				</tr>
+					
 			</tbody>
 		</table>	
 	</form>
 	</body>
-	</section>
-</main>
-</body>
+	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
 </html>
